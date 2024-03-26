@@ -8,7 +8,7 @@ public class HabitudeAchat {
     HashMap<Month, Integer> quantiteVetementsPM;
     HashMap<Month, Float> quantiteProduitsLocaux; // juste pour ne pas oublier l'idée
    
-    public HashMap<Month, Integer> setQuantiteVetementsSM() {
+    public HashMap<Month, Integer> getQuantiteVetementsSM() {
         return quantiteVetementsSM;
     }
 
