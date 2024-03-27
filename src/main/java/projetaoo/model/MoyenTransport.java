@@ -2,12 +2,12 @@ package projetaoo.model;
 
 public class MoyenTransport {
     public enum nomMoyenTransport {
-        VELO, 
+        VELO,
         TRANSPORTCOMMUN,
-        AVION, 
-        TRAIN, 
-        BATEAU, 
-        COVOITURAGE, 
+        AVION,
+        TRAIN,
+        BATEAU,
+        COVOITURAGE,
         VOITURE,
         MOTO,
         TROTINETTE;
