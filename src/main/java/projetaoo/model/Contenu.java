@@ -1,13 +1,33 @@
 package projetaoo.model;
 
+
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+
+@Entity
 public abstract class Contenu {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected Long id; // Ajout d'un identifiant
+
     protected String titre;
     protected Date datePublication;
+
+    @Enumerated(EnumType.STRING)
     protected Categorie categorie;
+
+    @ElementCollection
     protected Set<String> tags;
 
     public Contenu(String titre, Date datePublication, Categorie categorie) {
@@ -16,6 +36,10 @@ public abstract class Contenu {
         this.categorie = categorie;
         this.tags = new HashSet<>();
 
+    }
+
+    public Contenu() {
+        // Constructeur sans argument requis par Hibernate
     }
 
     public String getTitre() {

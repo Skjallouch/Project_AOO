@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Empreinte Écologique - Informations Utilisateur</title>
+  </head>
+  <body>
+    <h2>Informations sur l'Utilisateur</h2>
+
+    <form
+      th:action="@{/utilisateur/save}"
+      th:object="${utilisateur}"
+      method="post"
+    >
+      <label for="nom">Nom:</label>
+      <input
+        type="text"
+        id="nom"
+        name="nom"
+        th:value="*{nom}"
+        required
+      /><br /><br />
+
+      <label for="age">Age:</label>
+      <input
+        type="number"
+        id="age"
+        name="age"
+        th:value="*{age}"
+        required
+      /><br /><br />
+
+      <label for="paysResidence">Pays de résidence:</label>
+      <input
+        type="text"
+        id="paysResidence"
+        name="paysResidence"
+        th:value="*{paysResidence}"
+        required
+      /><br /><br />
+
+      <label for="typeAlimentation">Type d'Alimentation:</label>
+      <input
+        type="text"
+        id="typeAlimentation"
+        name="typeAlimentation"
+        th:value="*{typeAlimentation}"
+      /><br /><br />
+      <label for="consoEnergie"
+        >Consommation d'énergie (kWh) pour ce mois:</label
+      >
+      <input
+        type="number"
+        id="consoEnergie"
+        name="consoEnergie"
+        step="0.01"
+        th:value="*{consoEnergie}"
+        required
+      /><br /><br />
+
+      <label for="consoEau">Consommation d'eau (litres) pour ce mois:</label>
+      <input
+        type="number"
+        id="consoEau"
+        name="consoEau"
+        step="0.01"
+        th:value="*{consoEau}"
+        required
+      /><br /><br />
+
+      <label for="quantiteDechets"
+        >Quantité de déchets (kg) pour ce mois:</label
+      >
+      <input
+        type="number"
+        id="quantiteDechets"
+        name="quantiteDechets"
+        step="0.01"
+        th:value="*{quantiteDechets}"
+        required
+      /><br /><br />
+
+
+      <label for="minutesVoiture">Minutes passées en voiture ce mois:</label>
+<input type="number" id="minutesVoiture" name="minutesTransport['VOITURE']" required><br><br>
+
+<label for="minutesBus">Minutes passées en bus ce mois:</label>
+<input type="number" id="minutesBus" name="minutesTransport['BUS']" required><br><br>
+
+<label for="minutesTrain">Minutes passées en train ce mois:</label>
+<input type="number" id="minutesTrain" name="minutesTransport['TRAIN']" required><br><br>
+
+<label for="minutesVelo">Minutes passées à vélo ce mois:</label>
+<input type="number" id="minutesVelo" name="minutesTransport['VELO']" required><br><br>
+
+      <button type="submit">Soumettre</button>
+    </form>
+  </body>
+</html>

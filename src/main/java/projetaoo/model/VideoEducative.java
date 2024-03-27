@@ -2,6 +2,11 @@ package projetaoo.model;
 
 import java.util.Date;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "video_educative") // Nom de la table dans la base de données
 public class VideoEducative extends Contenu {
     private String url;
     private int duree; // Durée en minutes

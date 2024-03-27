@@ -13,6 +13,10 @@ public class CalculateurEmpreinte {
     private static final float FACTEUR_EMISSION_VETEMENTS_PM = 5.0f; // kg CO2 par vêtement produit $
     private static final float FACTEUR_EMISSION_PRODUITS_LOCAUX = 0.1f; // kg CO2 par kilo
 
+    private CalculateurEmpreinte() {
+        // Constructeur privé pour empêcher l'instanciation de la classe
+    }
+
     public static float calculerEmpreinteEnergie(HashMap<Month, Float> consoEnergie) {
         float empreinteTotale = 0;
         for (Float conso : consoEnergie.values()) {
@@ -36,7 +40,7 @@ public class CalculateurEmpreinte {
         facteursEmission.put(MoyenTransport.nomMoyenTransport.MOTO, 0.15f); 
         facteursEmission.put(MoyenTransport.nomMoyenTransport.TROTINETTE, 0.04f); 
     
-        // calcul de l'empreinte transport pour chq moyen de transport 
+        // calcul de l'empreinte transport pour chq moyen de transport
         for (Map.Entry<MoyenTransport.nomMoyenTransport, Integer> entry : minutesMoyenTransport.entrySet()) {
             Float facteur = facteursEmission.get(entry.getKey());
             if (facteur != null) {
@@ -53,7 +57,7 @@ public class CalculateurEmpreinte {
         }
         return empreinte; // pour retouner l'empreinte carbone totale en kg CO2 pour les produits locaux
     }
-   
+
     public static float calculerEmpreinteAchats(HabitudeAchat habitudeAchat) {
     float empreinteVetements = calculerEmpreinteVetements(habitudeAchat.getQuantiteVetementsSM(), habitudeAchat.getQuantiteVetementsPM());
     float empreinteProduitsLocaux = calculerEmpreinteProduitsLocaux(habitudeAchat.getQuantiteProduitsLocaux());
@@ -62,11 +66,11 @@ public class CalculateurEmpreinte {
 
     public static float calculerEmpreinteTotale(Utilisateur utilisateur) {
         float empreinteEnergie = calculerEmpreinteEnergie(utilisateur.getConsoEnergie());
-        float empreinteAchats = calculerEmpreinteAchats(utilisateur.getHabitudeAchat()); 
+        float empreinteAchats = calculerEmpreinteAchats(utilisateur.getHabitudeAchat());
         float empreinteTransport = calculerEmpreinteTransport(utilisateur.getMinutesMoyenTransport());
         return empreinteEnergie + empreinteAchats + empreinteTransport;
     }
-    
+
     public static String suggererReductions(float empreinteTotale) {
         return "Suggestions pour réduire votre empreinte carbone...";
     }

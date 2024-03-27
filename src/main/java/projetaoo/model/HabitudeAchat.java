@@ -3,11 +3,21 @@ package projetaoo.model;
 import java.time.Month;
 import java.util.HashMap;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class HabitudeAchat {
+
+    @Id
+    private Long id;
+
     HashMap<Month, Integer> quantiteVetementsSM;
+
     HashMap<Month, Integer> quantiteVetementsPM;
+
     HashMap<Month, Float> quantiteProduitsLocaux; // juste pour ne pas oublier l'idée
-   
+
     public HashMap<Month, Integer> getQuantiteVetementsSM() {
         return quantiteVetementsSM;
     }
@@ -15,7 +25,7 @@ public class HabitudeAchat {
     public HashMap<Month, Integer> getQuantiteVetementsPM() {
         return quantiteVetementsPM;
     }
-    
+
     public HashMap<Month, Float> getQuantiteProduitsLocaux() {
         return quantiteProduitsLocaux;
     }
@@ -27,6 +37,8 @@ public class HabitudeAchat {
             this.quantiteProduitsLocaux.put(mois, kilosProduitsAchetes);
         }
     }
+
+
 
     public void addVetementsSM(Month mois, Integer quantite) {
         if (this.quantiteVetementsSM.containsKey(mois)) {
@@ -43,5 +55,5 @@ public class HabitudeAchat {
             this.quantiteVetementsPM.put(mois, quantite);
         }
     }
-    
+
 }

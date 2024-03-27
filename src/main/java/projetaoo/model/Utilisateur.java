@@ -4,21 +4,39 @@ import java.time.Month;
 import java.util.Date;
 import java.util.HashMap;
 
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import projetaoo.model.MoyenTransport.nomMoyenTransport;
 
+@Entity
 public class Utilisateur {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nom;
+
+    @ElementCollection
     private HashMap<Date, Integer> nombrePas;
     private String typeAlimentation;
     private int age;
     private String paysResidence;
     private HashMap<Month, Float> consoEnergie; // par exemple il va dire qu'il a consommé ... kw en janvier 2021, etc.
     private HashMap<Month, Float> consoEau;
-    // private HashMap<MoyenTransport, Integer> minutesMoyenTransport; 
+    // private HashMap<MoyenTransport, Integer> minutesMoyenTransport;
     private HashMap<MoyenTransport.nomMoyenTransport, Integer> minutesMoyenTransport; // par mois, il faut qu'on sauvegarde les données dès le début
     private HashMap<Month, Float> quantiteDechets; // en kilos, par mois, le compteur va se reinitialiser au début de chaque mois
+    @Embedded
     private HabitudeAchat habitudeAchat;
     // HabitudeAchat nécéssaire pour la méthode calculerEmpreinteAchats de la classe CalculateurEmpreinte
+
+    public Utilisateur() {
+        // Constructeur sans argument requis par Hibernate
+    }
 
     public HabitudeAchat getHabitudeAchat() {
         return habitudeAchat;
@@ -103,7 +121,7 @@ public class Utilisateur {
     public HashMap<MoyenTransport.nomMoyenTransport, Integer> getMinutesMoyenTransport() {
         return minutesMoyenTransport;
     }
-    
+
     public void initMinutesTransport (MoyenTransport.nomMoyenTransport moyen) {
         this.minutesMoyenTransport.put(moyen, Integer.valueOf(0));
     }

@@ -3,6 +3,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class Article extends Contenu {
     private String auteur;
     private String texte;
@@ -15,8 +18,8 @@ public class Article extends Contenu {
         this.auteur = auteur;
         this.texte = texte;
         this.commentaires = new ArrayList<>();
-
     }
+
 
     public String getAuteur() {
         return auteur;
