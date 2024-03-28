@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Empreinte Carbone des Produits</title>
+</head>
+<body>
+<h2>Empreinte Carbone des Produits</h2>
+<ul>
+    <li th:each="produit : ${produits}">
+        <span th:text="${produit.nom}">Nom du produit</span> :
+        <span th:text="${produit.empreinteCarbone}">Empreinte carbone</span> kg CO2
+    </li>
+</ul>
+</body>
+</html>
