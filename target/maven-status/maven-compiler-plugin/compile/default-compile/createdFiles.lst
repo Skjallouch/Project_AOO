@@ -2,6 +2,7 @@ projetaoo/repository/ContenuRepository.class
 projetaoo/model/HabitudeAchat.class
 projetaoo/model/VideoEducative.class
 projetaoo/model/Contenu.class
+projetaoo/config/JpaConfig.class
 projetaoo/model/EspaceInfoEcologie.class
 projetaoo/service/ContenuService.class
 projetaoo/service/CalculateurEmpreinteService.class
@@ -11,6 +12,7 @@ projetaoo/model/Utilisateur.class
 projetaoo/repository/HabitudeAchatRepository.class
 projetaoo/service/HabitudeAchatService.class
 projetaoo/controller/UtilisateurController.class
+projetaoo/controller/HomeController.class
 projetaoo/model/Article.class
 projetaoo/controller/ContenuController.class
 projetaoo/Main.class

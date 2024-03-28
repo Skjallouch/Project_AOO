@@ -34,8 +34,13 @@ public class Utilisateur {
     private HabitudeAchat habitudeAchat;
     // HabitudeAchat nécéssaire pour la méthode calculerEmpreinteAchats de la classe CalculateurEmpreinte
 
+
     public Utilisateur() {
-        // Constructeur sans argument requis par Hibernate
+        this.nombrePas = new HashMap<>();
+        this.consoEnergie = new HashMap<>();
+        this.consoEau = new HashMap<>();
+        this.minutesMoyenTransport = new HashMap<>();
+        this.quantiteDechets = new HashMap<>();
     }
 
     public HabitudeAchat getHabitudeAchat() {
@@ -126,7 +131,7 @@ public class Utilisateur {
         this.minutesMoyenTransport.put(moyen, Integer.valueOf(0));
     }
 
-    public void addConsoEau(nomMoyenTransport moyen, Integer nbMinutes) {
+    public void addMinutesTransport(nomMoyenTransport moyen, Integer nbMinutes) {
         if (this.minutesMoyenTransport.containsKey(moyen)) {
             this.minutesMoyenTransport.put(moyen, this.minutesMoyenTransport.get(moyen) + nbMinutes);
         } else {
@@ -148,6 +153,14 @@ public class Utilisateur {
         } else {
             this.quantiteDechets.put(mois, quantite);
         }
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
 }
