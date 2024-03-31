@@ -1,36 +1,99 @@
 package projetaoo.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "moyens_transport")
 
 public class MoyenTransport {
-    public enum nomMoyenTransport {
 
-        @Enumerated(EnumType.STRING)
-        VELO,
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-        @Enumerated(EnumType.STRING)
-        TRANSPORTCOMMUN,
+    @Enumerated(EnumType.STRING)
+    private NomMoyenTransport nom;
 
-        @Enumerated(EnumType.STRING)
-        AVION,
+    @Column(name = "empreinte_carbone_par_km", nullable = false)
+    private Double empreinteCarboneParKm;
 
-        @Enumerated(EnumType.STRING)
-        TRAIN,
+    public Long getId() {
+        return id;
+    }
 
-        @Enumerated(EnumType.STRING)
-        BATEAU,
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-        @Enumerated(EnumType.STRING)
-        COVOITURAGE,
+    public NomMoyenTransport getNom() {
+        return nom;
+    }
 
-        @Enumerated(EnumType.STRING)
-        VOITURE,
+    public void setNom(NomMoyenTransport nom) {
+        this.nom = nom;
+    }
 
-        @Enumerated(EnumType.STRING)
-        MOTO,
+    public double getEmpreinteCarboneParKm() {
+        return empreinteCarboneParKm;
+    }
 
-        @Enumerated(EnumType.STRING)
-        TROTINETTE;
+    public void setEmpreinteCarboneParKm(double empreinteCarboneParKm) {
+        this.empreinteCarboneParKm = empreinteCarboneParKm;
+    }
+
+    // Constructeur par défaut
+    public MoyenTransport() {
+    }
+
+    // Constructeur avec tous les paramètres
+    public MoyenTransport(NomMoyenTransport nom, double empreinteCarboneParKm) {
+        this.nom = nom;
+        this.empreinteCarboneParKm = empreinteCarboneParKm;
+    }
+
+    public static enum NomMoyenTransport {
+        VELO, TRANSPORTCOMMUN, AVION, TRAIN, BATEAU, COVOITURAGE, VOITURE, MOTO, TROTINETTE
+    }
+
+    public class nomMoyenTransport {
     }
 }
+
+/*
+ * public enum nomMoyenTransport {
+ * 
+ * @Enumerated(EnumType.STRING)
+ * VELO,
+ * 
+ * @Enumerated(EnumType.STRING)
+ * TRANSPORTCOMMUN,
+ * 
+ * @Enumerated(EnumType.STRING)
+ * AVION,
+ * 
+ * @Enumerated(EnumType.STRING)
+ * TRAIN,
+ * 
+ * @Enumerated(EnumType.STRING)
+ * BATEAU,
+ * 
+ * @Enumerated(EnumType.STRING)
+ * COVOITURAGE,
+ * 
+ * @Enumerated(EnumType.STRING)
+ * VOITURE,
+ * 
+ * @Enumerated(EnumType.STRING)
+ * MOTO,
+ * 
+ * @Enumerated(EnumType.STRING)
+ * TROTINETTE;
+ * }
+ */

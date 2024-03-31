@@ -1,40 +1,80 @@
 package projetaoo.model;
 
 import java.time.Month;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.Map;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import projetaoo.model.MoyenTransport.nomMoyenTransport;
-
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.MapKeyColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import projetaoo.model.MoyenTransport.NomMoyenTransport;
 
 @Entity
+@Table(name = "utilisateur")
+
 public class Utilisateur {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
     private String nom;
 
+    /*
+     * @Column(nullable = false, unique = true)
+     * private String email;
+     */
+
     @ElementCollection
-    private HashMap<Date, Integer> nombrePas;
+    @CollectionTable(name = "nombre_pas", joinColumns = @JoinColumn(name = "utilisateur_id"))
+    @MapKeyColumn(name = "date")
+    @Column(name = "nombre_pas")
+    private Map<LocalDate, Integer> nombrePas = new HashMap<>();
+
+    @Column(name = "type_alimentation")
     private String typeAlimentation;
     private int age;
+
+    @Column(name = "pays_residence")
     private String paysResidence;
-    private HashMap<Month, Float> consoEnergie; // par exemple il va dire qu'il a consommé ... kw en janvier 2021, etc.
-    private HashMap<Month, Float> consoEau;
+
+    @ElementCollection
+    @CollectionTable(name = "consommation_energie", joinColumns = @JoinColumn(name = "utilisateur_id"))
+    @MapKeyColumn(name = "mois")
+    @Column(name = "consommation")
+    private Map<Month, Float> consoEnergie = new HashMap<>(); // par exemple il va dire qu'il a consommé ... kw en
+                                                              // janvier 2021, etc.
+
+    @ElementCollection
+    @CollectionTable(name = "consommation_eau", joinColumns = @JoinColumn(name = "utilisateur_id"))
+    @MapKeyColumn(name = "mois")
+    @Column(name = "consommation")
+    private Map<LocalDate, Integer> consoEau = new HashMap<>();
     // private HashMap<MoyenTransport, Integer> minutesMoyenTransport;
-    private HashMap<MoyenTransport.nomMoyenTransport, Integer> minutesMoyenTransport; // par mois, il faut qu'on
-                                                                                      // sauvegarde les données dès le
-                                                                                      // début
-    private HashMap<Month, Float> quantiteDechets; // en kilos, par mois, le compteur va se reinitialiser au début de
-                                                   // chaque mois
-    @Embedded
+
+    @ElementCollection
+    private Map<NomMoyenTransport, Integer> minutesMoyenTransport = new HashMap<>(); // par mois, il
+                                                                                     // faut qu'on
+    // sauvegarde les données dès le
+    // début
+    @ElementCollection
+    private Map<Month, Float> quantiteDechets = new HashMap<>(); // en kilos, par mois, le compteur va se
+                                                                 // reinitialiser au début de
+    // chaque mois
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "habitude_achat_id", referencedColumnName = "id")
     private HabitudeAchat habitudeAchat;
     // HabitudeAchat nécéssaire pour la méthode calculerEmpreinteAchats de la classe
     // CalculateurEmpreinte
@@ -63,11 +103,11 @@ public class Utilisateur {
         this.nom = nom;
     }
 
-    public HashMap<Date, Integer> getNombrePas() {
+    public Map<LocalDate, Integer> getNombrePas() {
         return nombrePas;
     }
 
-    public void setNombrePas(HashMap<Date, Integer> nombrePas) {
+    public void setNombrePas(HashMap<LocalDate, Integer> nombrePas) {
         this.nombrePas = nombrePas;
     }
 
@@ -95,7 +135,7 @@ public class Utilisateur {
         this.paysResidence = paysResidence;
     }
 
-    public HashMap<Month, Float> getConsoEnergie() {
+    public Map<Month, Float> getConsoEnergie() {
         return consoEnergie;
     }
 
@@ -111,31 +151,34 @@ public class Utilisateur {
         }
     }
 
-    public HashMap<Month, Float> getConsoEau() {
+    public Map<LocalDate, Integer> getConsoEau() {
         return consoEau;
     }
 
-    public void initConsoEau(Month mois) {
-        this.consoEau.put(mois, Float.valueOf(0));
+    public void initConsoEau(LocalDate date) {
+        this.consoEau.put(date, 0); // Initialise la consommation d'eau à 0 pour la date spécifiée
     }
 
-    public void addConsoEau(Month mois, Float quantite) {
-        if (this.consoEau.containsKey(mois)) {
-            this.consoEau.put(mois, this.consoEau.get(mois) + quantite);
+    public void addConsoEau(LocalDate date, Integer quantite) {
+        // Vérifie si la date existe déjà dans la map
+        if (this.consoEau.containsKey(date)) {
+            // Si oui, ajoute la quantité spécifiée à la valeur existante
+            this.consoEau.put(date, this.consoEau.get(date) + quantite);
         } else {
-            this.consoEau.put(mois, quantite);
+            // Sinon, ajoute une nouvelle entrée avec la date et la quantité spécifiée
+            this.consoEau.put(date, quantite);
         }
     }
 
-    public HashMap<MoyenTransport.nomMoyenTransport, Integer> getMinutesMoyenTransport() {
+    public Map<NomMoyenTransport, Integer> getMinutesMoyenTransport() {
         return minutesMoyenTransport;
     }
 
-    public void initMinutesTransport(MoyenTransport.nomMoyenTransport moyen) {
+    public void initMinutesTransport(NomMoyenTransport moyen) {
         this.minutesMoyenTransport.put(moyen, Integer.valueOf(0));
     }
 
-    public void addMinutesTransport(nomMoyenTransport moyen, Integer nbMinutes) {
+    public void addMinutesTransport(NomMoyenTransport moyen, Integer nbMinutes) {
         if (this.minutesMoyenTransport.containsKey(moyen)) {
             this.minutesMoyenTransport.put(moyen, this.minutesMoyenTransport.get(moyen) + nbMinutes);
         } else {
@@ -143,7 +186,7 @@ public class Utilisateur {
         }
     }
 
-    public HashMap<Month, Float> getQuantiteDechets() {
+    public Map<Month, Float> getQuantiteDechets() {
         return quantiteDechets;
     }
 

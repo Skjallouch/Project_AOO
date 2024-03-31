@@ -1,15 +1,23 @@
 package projetaoo.model;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
+import java.util.Date;
+import java.util.Set;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "articles")
 public class Article extends Contenu {
     private String auteur;
     private String texte;
-    private List<String> commentaires;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "article", orphanRemoval = true)
+    private Set<Commentaire> commentaires;
+
     private int nombreDeLikes;
     private int nombreDeVues;
 
@@ -17,13 +25,11 @@ public class Article extends Contenu {
         super(titre, datePublication, categorie);
         this.auteur = auteur;
         this.texte = texte;
-        this.commentaires = new ArrayList<>();
     }
 
     // Constructeur par défaut nécessaire pour JPA
     public Article() {
         super();
-        this.commentaires = new ArrayList<>();
     }
 
     public String getAuteur() {
@@ -42,12 +48,9 @@ public class Article extends Contenu {
         this.texte = texte;
     }
 
-    public void ajouterCommentaire(String commentaire) {
+    public void ajouterCommentaire(Commentaire commentaire) {
         this.commentaires.add(commentaire);
-    }
-    
-    public List<String> getCommentaires() {
-        return new ArrayList<>(commentaires); // Retourne une copie pour éviter la modification externe
+        commentaire.setArticle(this);
     }
 
     public void ajouterLike() {
@@ -61,7 +64,7 @@ public class Article extends Contenu {
     public void incrementerVues() {
         this.nombreDeVues++;
     }
-    
+
     public int getNombreDeVues() {
         return nombreDeVues;
     }
