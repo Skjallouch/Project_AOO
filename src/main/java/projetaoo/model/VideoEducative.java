@@ -11,6 +11,11 @@ public class VideoEducative extends Contenu {
     private String url;
     private int duree; // Durée en minutes
 
+    // Constructeur par défaut nécessaire pour JPA
+    public VideoEducative() {
+        super();
+    }
+
     public VideoEducative(String titre, Date datePublication, Categorie categorie, String url, int duree) {
         super(titre, datePublication, categorie);
         this.url = url;

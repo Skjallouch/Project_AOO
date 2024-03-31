@@ -20,6 +20,11 @@ public class Article extends Contenu {
         this.commentaires = new ArrayList<>();
     }
 
+    // Constructeur par défaut nécessaire pour JPA
+    public Article() {
+        super();
+        this.commentaires = new ArrayList<>();
+    }
 
     public String getAuteur() {
         return auteur;

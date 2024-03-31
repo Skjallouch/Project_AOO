@@ -12,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import projetaoo.model.MoyenTransport.nomMoyenTransport;
 
+
 @Entity
 public class Utilisateur {
 
@@ -28,12 +29,15 @@ public class Utilisateur {
     private HashMap<Month, Float> consoEnergie; // par exemple il va dire qu'il a consommé ... kw en janvier 2021, etc.
     private HashMap<Month, Float> consoEau;
     // private HashMap<MoyenTransport, Integer> minutesMoyenTransport;
-    private HashMap<MoyenTransport.nomMoyenTransport, Integer> minutesMoyenTransport; // par mois, il faut qu'on sauvegarde les données dès le début
-    private HashMap<Month, Float> quantiteDechets; // en kilos, par mois, le compteur va se reinitialiser au début de chaque mois
+    private HashMap<MoyenTransport.nomMoyenTransport, Integer> minutesMoyenTransport; // par mois, il faut qu'on
+                                                                                      // sauvegarde les données dès le
+                                                                                      // début
+    private HashMap<Month, Float> quantiteDechets; // en kilos, par mois, le compteur va se reinitialiser au début de
+                                                   // chaque mois
     @Embedded
     private HabitudeAchat habitudeAchat;
-    // HabitudeAchat nécéssaire pour la méthode calculerEmpreinteAchats de la classe CalculateurEmpreinte
-
+    // HabitudeAchat nécéssaire pour la méthode calculerEmpreinteAchats de la classe
+    // CalculateurEmpreinte
 
     public Utilisateur() {
         this.nombrePas = new HashMap<>();
@@ -95,7 +99,7 @@ public class Utilisateur {
         return consoEnergie;
     }
 
-    public void initConsoEnergie (Month mois) {
+    public void initConsoEnergie(Month mois) {
         this.consoEnergie.put(mois, Float.valueOf(0));
     }
 
@@ -111,7 +115,7 @@ public class Utilisateur {
         return consoEau;
     }
 
-    public void initConsoEau (Month mois) {
+    public void initConsoEau(Month mois) {
         this.consoEau.put(mois, Float.valueOf(0));
     }
 
@@ -127,7 +131,7 @@ public class Utilisateur {
         return minutesMoyenTransport;
     }
 
-    public void initMinutesTransport (MoyenTransport.nomMoyenTransport moyen) {
+    public void initMinutesTransport(MoyenTransport.nomMoyenTransport moyen) {
         this.minutesMoyenTransport.put(moyen, Integer.valueOf(0));
     }
 
@@ -143,7 +147,7 @@ public class Utilisateur {
         return quantiteDechets;
     }
 
-    public void initQuantiteDechets (Month mois) {
+    public void initQuantiteDechets(Month mois) {
         this.quantiteDechets.put(mois, Float.valueOf(0));
     }
 

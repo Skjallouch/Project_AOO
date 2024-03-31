@@ -4,7 +4,7 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 
 public enum Categorie {
-    
+
     @Enumerated(EnumType.STRING)
     CHANGEMENTS_CLIMATIQUES,
 
