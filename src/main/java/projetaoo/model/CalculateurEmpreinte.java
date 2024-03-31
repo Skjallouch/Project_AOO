@@ -33,7 +33,7 @@ public class CalculateurEmpreinte {
 
         // facteurs d'émission pour chq moyen de transport
         facteursEmission.put(MoyenTransport.NomMoyenTransport.VELO, 0.05f);
-        facteursEmission.put(MoyenTransport.NomMoyenTransport.TRANSPORTCOMMUN, 0.06f);
+        facteursEmission.put(MoyenTransport.NomMoyenTransport.TRANSPORT_COMMUN, 0.06f);
         facteursEmission.put(MoyenTransport.NomMoyenTransport.AVION, 0.25f);
         facteursEmission.put(MoyenTransport.NomMoyenTransport.TRAIN, 0.07f);
         facteursEmission.put(MoyenTransport.NomMoyenTransport.BATEAU, 0.18f);

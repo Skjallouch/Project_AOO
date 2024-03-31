@@ -1,30 +1,30 @@
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/service/HabitudeAchatService.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/model/CalculateurEmpreinte.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/model/HabitudeAchat.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/model/MoyenTransport.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/service/CalculateurEmpreinteService.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/model/ProduitCarbone.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/config/JpaConfig.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/model/Utilisateur.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/model/Contenu.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/controller/UtilisateurController.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/controller/HabitudeAchatController.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/model/Article.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/controller/ContenuController.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/service/UtilisateurService.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/repository/HabitudeAchatRepository.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/service/ContenuService.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/repository/VideoEducativeRepository.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/model/BaseCarboneDataParser.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/repository/UtilisateurRepository.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/repository/ArticleRepository.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/controller/HomeController.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/Main.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/model/Categorie.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/repository/ContenuRepository.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/model/ApiDataManager.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/model/Commentaire.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/controller/CarboneController.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/TestApiIntegration.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/model/EspaceInfoEcologie.java
-/Users/mayane/Desktop/ETUDES_MAYANE/L3/S2/archi_oo/Project_AOO/src/main/java/projetaoo/model/VideoEducative.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\model\Categorie.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\controller\HabitudeAchatController.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\controller\CarboneController.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\repository\ContenuRepository.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\model\Article.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\service\ContenuService.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\model\ApiDataManager.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\service\HabitudeAchatService.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\repository\HabitudeAchatRepository.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\controller\HomeController.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\config\JpaConfig.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\service\CalculateurEmpreinteService.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\controller\ContenuController.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\TestApiIntegration.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\model\HabitudeAchat.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\model\Commentaire.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\model\Contenu.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\model\MoyenTransport.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\model\VideoEducative.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\model\ProduitCarbone.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\model\BaseCarboneDataParser.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\repository\ArticleRepository.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\service\UtilisateurService.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\repository\UtilisateurRepository.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\controller\UtilisateurController.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\repository\VideoEducativeRepository.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\model\CalculateurEmpreinte.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\Main.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\model\Utilisateur.java
+C:\Users\Sarah Kjallouch\Desktop\Cours\S2\Architecture OO\Project_AOO\src\main\java\projetaoo\model\EspaceInfoEcologie.java
